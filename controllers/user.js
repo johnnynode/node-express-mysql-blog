@@ -140,8 +140,6 @@ exports.doLogin = function (req, res, next) {
       msg: 'success'
     });
   });
-
-
 };
 
 // 当每一次来请求这个验证码的处理函数的时候，都会动态的生成一张验证码图片，响应给客户端
