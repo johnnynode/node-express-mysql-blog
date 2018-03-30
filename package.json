@@ -1,6 +1,15 @@
 {
   "dependencies": {
+    "blueimp-file-upload-node": "^2.1.0",
+    "ccap": "^0.6.10",
+    "cookie-parser": "^1.4.3",
+    "formidable": "^1.2.1",
+    "gm": "^1.23.1",
+    "jquery-file-upload-middleware": "^0.1.8",
+    "markdown-it": "^8.4.1",
+    "moment": "^2.21.0",
     "mysql": "^2.15.0",
+    "utility": "^1.13.1",
     "xtemplate": "^4.6.1",
     "xtpl": "^3.4.0"
   }

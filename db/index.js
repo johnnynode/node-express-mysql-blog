@@ -28,10 +28,7 @@ exports.query = function (sql, P, C) {
     throw new Error('对不起，参数个数不匹配或者参数类型错误');
   }
 
-
   // 如果用户传入了三个参数，那么就是SQL和参数数组、回调函数
-
-
   // 从池子里面拿一个可以使用的连接
   pool.getConnection(function (err, connection) {
     // Use the connection
