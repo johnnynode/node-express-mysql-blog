@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "xtemplate": "^4.6.1",
+    "xtpl": "^3.4.0"
+  }
+}
