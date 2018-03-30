@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "mysql": "^2.15.0",
     "xtemplate": "^4.6.1",
     "xtpl": "^3.4.0"
   }

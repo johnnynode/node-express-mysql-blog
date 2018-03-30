@@ -38,7 +38,7 @@ app.use(require('./router'));
 // 开发环境错误处理中间件
 if(config.debug){
   app.use(function (err, req, res, next) {
-    res.send('糟了，服务器玩儿崩溃了'+err.message);
+    res.send('Oh shit, something went wrong' + err.message);
   });
 }
 
