@@ -163,10 +163,11 @@ exports.doLogout = function (req, res, next) {
   res.redirect('/');
 };
 
-exports.showSeting = function (req, res, next) {
+exports.showSetting = function (req, res, next) {
   let uid = req.session.user.id;
 
   User.getById(uid, function (err, result) {
+    console.log(result);
     res.render('setting', {
       user: result, // 这是Session，用于权限校验的user
       avatar: result.avatar // 这个user是数据库里面查询出来的
