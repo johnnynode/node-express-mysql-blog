@@ -1,3 +1,5 @@
+'use strict';
+
 const mysql = require('mysql');
 
 // 创建一个数据库连接池

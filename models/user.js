@@ -1,6 +1,6 @@
 "use strict";
 
-const db = require('./db');
+const db = require('../db');
 
 /*
  * 通过封装，对象自己管理自己

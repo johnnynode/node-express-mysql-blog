@@ -1,4 +1,6 @@
-const ccap = require('ccap');
+'use strict';
+
+// const ccap = require('ccap'); // not support node high version
 const User = require('../models/user');
 const utility = require('utility');
 const formidable = require('formidable');
@@ -17,10 +19,10 @@ exports.doRegister = function (req, res, next) {
   let username = req.body.username;
   let password = req.body.password;
   let email = req.body.email;
-  let vcode = req.body.vcode;
+  // let vcode = req.body.vcode;
   let avatar = 'avatar.png';
 
-  let session_vcode = req.session.vcode;
+  // let session_vcode = req.session.vcode; // 验证码暂时不做
 
 
   // 第二步：对用户提交的数据进行普通的数据校验
@@ -31,13 +33,16 @@ exports.doRegister = function (req, res, next) {
   // 密码必须是6-18为 字母、数字、下划线
   // email 必须符合邮箱规则
 
-  // 校验验证码是否正确
+  // 校验验证码是否正确 暂时不做这个功能
+  /*
   if (session_vcode.toLowerCase() !== vcode.toLowerCase()) {
     return res.json({
       code: '0',
       msg: '验证码不正确'
     });
   }
+  
+  */ 
 
 
   // 第三步：执行具体的业务逻辑校验，如果用户名已存在，那么就响应给客户端：用户名已存在,如果不存在，可以注册了
@@ -54,7 +59,7 @@ exports.doRegister = function (req, res, next) {
       });
     }
 
-    password = `${utility.md5(utility.md5(password + req.app.locals.config.secret))}`;
+    password = `${utility.md5(utility.md5(password + req.app.locals.config.secret))}`; // 加密密码
 
     let user = new User({
       username,
@@ -65,8 +70,11 @@ exports.doRegister = function (req, res, next) {
 
     user.save(function (err, result) {
       if (err) {
+        console.log('err');
+        console.log(err);
         return next(err);
       }
+      console.log('hre4');
       let uid = result.insertId;
       if (uid == 0) {
         return res.json({
@@ -138,17 +146,18 @@ exports.doLogin = function (req, res, next) {
 
 // 当每一次来请求这个验证码的处理函数的时候，都会动态的生成一张验证码图片，响应给客户端
 exports.getCaptcha = function (req, res, next) {
-
+  /*
   let ary = ccap().get();
 
   let txt = ary[0];
 
   let buf = ary[1];
 
-  req.session.vcode = txt;
+  req.session.vcode = txt;  // 忽略了
 
   res.end(buf);
-
+  */
+  res.end("123456"); // 暂时硬编码
 };
 
 exports.doLogout = function (req, res, next) {
